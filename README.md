@@ -1,3 +1,17 @@
+## TRY THE APPLICATION:
+ 
+  1- clone the project
+
+  2- move to ./TP/streamlit/ directory
+
+  3- run the command streamlit run app.py
+
+  4- move to your navigator and test if your file is a "malware" or not
+
+
+## STEPS TO ACHIEVE THIS PROJECT:
+
+
 1. Importation du dataset
 Charger les données nécessaires pour le projet.
 
