@@ -2,14 +2,9 @@ import pickle
 import pefile
 import streamlit as st
 import numpy as np
-import path
-import sys
-
-dir = path.Path(__file__).abspath()
-sys.append.path(dir.parent.parent)
 
 # loading in the model to predict on the data
-pickle_in = open('model_pickle', 'rb')
+pickle_in = open('./model_pickle', 'rb')
 classifier = pickle.load(pickle_in)
 
 
