@@ -4,7 +4,7 @@ import streamlit as st
 import numpy as np
 
 # loading in the model to predict on the data
-pickle_in = open('model_pickle', 'rb')
+pickle_in = open('model_pickle.pkl', 'rb')
 classifier = pickle.load(pickle_in)
 
 
