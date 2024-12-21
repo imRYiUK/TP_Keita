@@ -5,7 +5,7 @@ import numpy as np
 
 
 # loading in the model to predict on the data
-pickle_in = open('/mount/src/tp_keita/TP/streamlit/model_pickle2', 'rb')
+pickle_in = open('/mount/src/tp_keita/TP/streamlit/model_pickle', 'rb')
 classifier = pickle.load(pickle_in)
 
 
@@ -18,7 +18,6 @@ def welcome():
 def prediction(charac):
     entry_array = np.array(charac).reshape(1, -1)
     final_prediction = classifier.predict(entry_array)
-    print(final_prediction)
     return final_prediction
 
 
@@ -82,8 +81,8 @@ def main():
     if st.button("Predict"):
         file_charac = extract_pe_characteristics(exe_file)
         result = prediction(file_charac)
-
-        if result == "[1]":
+        # print(f"---result---\n{result[0]}")
+        if result == 1:
             st.error('this file is a MALWARE !!! '.format(result))
         else:
             st.success('this file is SAFE !!!'.format(result))
