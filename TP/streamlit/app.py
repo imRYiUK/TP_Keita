@@ -2,7 +2,6 @@ import pickle
 import pefile
 import streamlit as st
 import numpy as np
-import io
 
 # loading in the model to predict on the data
 pickle_in = open('model_pickle', 'rb')
