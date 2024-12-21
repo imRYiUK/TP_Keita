@@ -82,7 +82,7 @@ def main():
         file_charac = extract_pe_characteristics(exe_file)
         result = prediction(file_charac)
         # print(f"---result---\n{result[0]}")
-        if result == 1:
+        if result[0] == 1:
             st.error('this file is a MALWARE !!! '.format(result))
         else:
             st.success('this file is SAFE !!!'.format(result))
