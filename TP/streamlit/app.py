@@ -90,15 +90,28 @@ def main():
 
     # Predict button and result
     if exe_file is not None:
-        if st.button("Predict", use_container_width=True):
+        # Display file details
+        st.write("**File Details:**")
+        st.write(f"📄 **Name**: {exe_file.name}")
+        st.write(f"📏 **Size**: {exe_file.size / 1024:.2f} KB")
+
+        # Prediction button
+        if st.button("Predict"):
+            # Progress bar
+            progress_bar = st.progress(0)
+            for percent_complete in range(1, 101):
+                progress_bar.progress(percent_complete)
+
+            # Run prediction logic
             file_charac = extract_pe_characteristics(exe_file)
             result = prediction(file_charac)
 
-            # Display the result
+            # Display results with styling
             if result[0] == 1:
-                st.error('⚠️ This file is a MALWARE!')
+                st.error('⚠️ This file is a MALWARE! Proceed with caution.')
             else:
                 st.success('✅ This file is SAFE!')
 
 if __name__ == '__main__':
     main()
+
