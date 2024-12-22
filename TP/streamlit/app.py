@@ -128,16 +128,16 @@ def main():
                 st.success('✅ This file is SAFE!')
 
     # About section
-    st.sidebar.markdown('<div class="section-title">About</div>', unsafe_allow_html=True)
-    st.sidebar.info(
-        """
-        This app leverages machine learning to detect potential malware 
-        in executable files. Upload your `.exe` files to get started.
-        """
-    )
-
-    # Footer
-    st.markdown(
-        '<div class="footer">© 2024 Malware Detection App | Developed with ❤️ using Streamlit</div>',
-        unsafe_allow_html=True,
-    )
+    # st.sidebar.markdown('<div class="section-title">About</div>', unsafe_allow_html=True)
+    # st.sidebar.info(
+    #     """
+    #     This app leverages machine learning to detect potential malware
+    #     in executable files. Upload your `.exe` files to get started.
+    #     """
+    # )
+    #
+    # # Footer
+    # st.markdown(
+    #     '<div class="footer">© 2024 Malware Detection App | Developed with ❤️ using Streamlit</div>',
+    #     unsafe_allow_html=True,
+    # )
