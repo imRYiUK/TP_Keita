@@ -52,7 +52,15 @@ def extract_pe_characteristics(file_obj):
     return list(characteristics.values())
 
 def main():
-    # Custom CSS for styling
+    st.sidebar.info(
+        """
+        Navigate through the app:
+        - Malware Detection
+        - About
+        """
+    )
+
+    # Custom CSS for enhanced styling
     st.markdown(
         """
         <style>
@@ -62,23 +70,30 @@ def main():
             border-radius: 10px;
             color: white;
             text-align: center;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
         }
         .section-title {
             color: #0047ab;
-            font-size: 20px;
+            font-size: 22px;
             margin-top: 20px;
             margin-bottom: 10px;
         }
-        .file-upload {
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0047ab;
+            color: white;
             text-align: center;
-            margin-top: 20px;
+            padding: 10px;
+            font-size: 14px;
         }
         </style>
         """,
         unsafe_allow_html=True,
     )
-
     # Main title
     st.markdown('<div class="main-title">Malware Detection Classifier ML App</div>', unsafe_allow_html=True)
 
