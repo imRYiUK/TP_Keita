@@ -97,11 +97,6 @@ def main():
 
         # Prediction button
         if st.button("Predict"):
-            # Progress bar
-            progress_bar = st.progress(0)
-            for percent_complete in range(1, 101):
-                progress_bar.progress(percent_complete)
-
             # Run prediction logic
             file_charac = extract_pe_characteristics(exe_file)
             result = prediction(file_charac)
@@ -112,6 +107,20 @@ def main():
             else:
                 st.success('✅ This file is SAFE!')
 
+    # About section
+    st.sidebar.markdown('<div class="section-title">About</div>', unsafe_allow_html=True)
+    st.sidebar.info(
+        """
+        This app leverages machine learning to detect potential malware 
+        in executable files. Upload your `.exe` files to get started.
+        """
+    )
+
+    # Footer
+    st.markdown(
+        '<div class="footer">© 2024 Malware Detection App | Developed with ❤️ using Streamlit</div>',
+        unsafe_allow_html=True,
+    )
 if __name__ == '__main__':
     main()
 
