@@ -52,15 +52,7 @@ def extract_pe_characteristics(file_obj):
     return list(characteristics.values())
 
 def main():
-    st.sidebar.info(
-        """
-        Navigate through the app:
-        - Malware Detection
-        - About
-        """
-    )
-
-    # Custom CSS for enhanced styling
+    # Custom CSS for styling
     st.markdown(
         """
         <style>
@@ -70,35 +62,30 @@ def main():
             border-radius: 10px;
             color: white;
             text-align: center;
-            font-size: 28px;
-            font-weight: bold;
+            font-size: 24px;
         }
         .section-title {
             color: #0047ab;
-            font-size: 22px;
+            font-size: 20px;
             margin-top: 20px;
             margin-bottom: 10px;
         }
-        .footer {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #0047ab;
-            color: white;
+        .file-upload {
             text-align: center;
-            padding: 10px;
-            font-size: 14px;
+            margin-top: 20px;
         }
         </style>
         """,
         unsafe_allow_html=True,
     )
+
     # Main title
     st.markdown('<div class="main-title">Malware Detection Classifier ML App</div>', unsafe_allow_html=True)
 
-    # Section for file upload
+    # Section title
     st.markdown('<div class="section-title">Upload an Executable File (.exe)</div>', unsafe_allow_html=True)
+
+    # File uploader
     exe_file = st.file_uploader("", type="exe", label_visibility="collapsed")
 
     # Predict button and result
@@ -120,20 +107,6 @@ def main():
             else:
                 st.success('✅ This file is SAFE!')
 
-    # About section
-    st.sidebar.markdown('<div class="section-title">About</div>', unsafe_allow_html=True)
-    st.sidebar.info(
-        """
-        This app leverages machine learning to detect potential malware 
-        in executable files. Upload your `.exe` files to get started.
-        """
-    )
-
-    # Footer
-    st.markdown(
-        '<div class="footer">© 2024 Malware Detection App | Developed with ❤️ using Streamlit</div>',
-        unsafe_allow_html=True,
-    )
 if __name__ == '__main__':
     main()
 
