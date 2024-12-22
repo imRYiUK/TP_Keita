@@ -54,13 +54,13 @@ def extract_pe_characteristics(file_obj):
 # this is the main function in which we define our webpage
 def main():
     # giving the webpage a title
-    st.title("Malware Prediction")
+    # st.title("Malware Prediction")
 
     # here we define some of the front end elements of the web page like
     # the font and background color, the padding and the text to be displayed
     html_temp = """ 
-	<div style ="background-color:yellow;padding:13px"> 
-	<h1 style ="color:black;text-align:center;">Malware Detection Classifier ML App </h1> 
+	<div style ="background-color:blue;padding:13px;border-radius: 10px;"> 
+	    <h1 style ="color:white;text-align:center;">Malware Detection Classifier ML App </h1> 
 	</div> 
 	"""
 
@@ -83,7 +83,7 @@ def main():
         result = prediction(file_charac)
         # print(f"---result---\n{result[0]}")
         if result[0] == 1:
-            st.error('this file is a MALWARE !!! '.format(result))
+            st.error('this file is a MALWARE !!!'.format(result))
         else:
             st.success('this file is SAFE !!!'.format(result))
 
