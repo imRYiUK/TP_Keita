@@ -82,10 +82,8 @@ def main():
     # Main title
     st.markdown('<div class="main-title">Malware Detection Classifier ML App</div>', unsafe_allow_html=True)
 
-    # Section title
+    # Section for file upload
     st.markdown('<div class="section-title">Upload an Executable File (.exe)</div>', unsafe_allow_html=True)
-
-    # File uploader
     exe_file = st.file_uploader("", type="exe", label_visibility="collapsed")
 
     # Predict button and result
