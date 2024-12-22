@@ -59,7 +59,7 @@ def main():
     # here we define some of the front end elements of the web page like
     # the font and background color, the padding and the text to be displayed
     html_temp = """ 
-	<div style ="background-color:blue;padding:13px;border-radius: 10px;"> 
+	<div style ="background-color:blue;padding:13px;border-radius: 10px;margin-bottom: 10px;"> 
 	    <h1 style ="color:white;text-align:center;">Malware Detection Classifier ML App </h1> 
 	</div> 
 	"""
