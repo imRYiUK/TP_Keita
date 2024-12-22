@@ -51,42 +51,54 @@ def extract_pe_characteristics(file_obj):
 
     return list(characteristics.values())
 
-# this is the main function in which we define our webpage
 def main():
-    # giving the webpage a title
-    # st.title("Malware Prediction")
+    # Custom CSS for styling
+    st.markdown(
+        """
+        <style>
+        .main-title {
+            background-color: #0047ab;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            font-size: 24px;
+        }
+        .section-title {
+            color: #0047ab;
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        .file-upload {
+            text-align: center;
+            margin-top: 20px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
 
-    # here we define some of the front end elements of the web page like
-    # the font and background color, the padding and the text to be displayed
-    html_temp = """ 
-	<div style ="background-color:blue;padding:13px;border-radius: 10px;margin-bottom: 10px;"> 
-	    <h1 style ="color:white;text-align:center;">Malware Detection Classifier ML App </h1> 
-	</div> 
-	"""
+    # Main title
+    st.markdown('<div class="main-title">Malware Detection Classifier ML App</div>', unsafe_allow_html=True)
 
-    # this line allows us to display the front end aspects we have
-    # defined in the above code
-    st.markdown(html_temp, unsafe_allow_html=True)
+    # Section title
+    st.markdown('<div class="section-title">Upload an Executable File (.exe)</div>', unsafe_allow_html=True)
 
-    # the following lines create text boxes in which the user can enter
-    # the data required to make the prediction
+    # File uploader
+    exe_file = st.file_uploader("", type="exe", label_visibility="collapsed")
 
-    exe_file = st.file_uploader("Choose an .exe file", type="exe")
+    # Predict button and result
+    if exe_file is not None:
+        if st.button("Predict", use_container_width=True):
+            file_charac = extract_pe_characteristics(exe_file)
+            result = prediction(file_charac)
 
-    result = ""
-
-    # the below line ensures that when the button called 'Predict' is clicked,
-    # the prediction function defined above is called to make the prediction
-    # and store it in the variable result
-    if st.button("Predict"):
-        file_charac = extract_pe_characteristics(exe_file)
-        result = prediction(file_charac)
-        # print(f"---result---\n{result[0]}")
-        if result[0] == 1:
-            st.error('this file is a MALWARE !!!'.format(result))
-        else:
-            st.success('this file is SAFE !!!'.format(result))
-
+            # Display the result
+            if result[0] == 1:
+                st.error('⚠️ This file is a MALWARE!')
+            else:
+                st.success('✅ This file is SAFE!')
 
 if __name__ == '__main__':
     main()
