@@ -90,11 +90,6 @@ def main():
 
     # Predict button and result
     if exe_file is not None:
-        # Display file details
-        st.write("**File Details:**")
-        st.write(f"📄 **Name**: {exe_file.name}")
-        st.write(f"📏 **Size**: {exe_file.size / 1024:.2f} KB")
-
         # Prediction button
         if st.button("Predict"):
             # Run prediction logic
